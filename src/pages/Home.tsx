@@ -168,7 +168,7 @@ const Home: React.FC = () => {
         <>
           <Hero />
           <section className="pt-8 sm:pt-12 lg:pt-16 pb-2 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-8 sm:mb-10 lg:mb-12">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">Browse by Category</h2>
                 <p className="text-sm sm:text-base lg:text-lg text-gray-600">Select a category to explore our Apple products</p>
@@ -192,7 +192,7 @@ const Home: React.FC = () => {
           <Hero />
           {/* Category Header */}
           <section ref={categoryHeaderRef} className="py-4 sm:py-5 lg:py-6 bg-white border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{currentCategory?.name}</h2>
@@ -235,7 +235,7 @@ const Home: React.FC = () => {
 
           {/* Products Section */}
           <section className="py-6 sm:py-7 lg:py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-5 lg:gap-6">
                 {filteredProducts.map((product) => (
                   <ProductCard 
