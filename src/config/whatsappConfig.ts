@@ -2,12 +2,10 @@
 
 export const whatsappConfig = {
   // Primary WhatsApp contact information
-  phoneNumber: "+447700900123", // Replace with actual seller's WhatsApp number
-  whatsappLink: "https://wa.me/447700900123", // Replace with actual WhatsApp link
+  phoneNumber: "+447700900123", 
+  whatsappLink: "https://wa.me/447700900123", 
 
   
-  // Alternative: You can also use a WhatsApp Business API link
-  // whatsappLink: "https://wa.me/447700900123?text=Hi!%20I'm%20interested%20in%20your%20products.",
   
   // Seller information
   sellerName: "TechGuru UK",
