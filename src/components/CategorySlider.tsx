@@ -46,78 +46,68 @@ const CategorySlider: React.FC<CategorySliderProps> = ({ categories, onCategoryC
   };
 
   return (
-    <div 
-      className="relative bg-gray-50 py-8 sm:py-10 lg:py-12" 
-      style={{ minHeight: '400px' }}
+    <div
+      className="relative bg-[#fcfcf9] py-6 sm:py-8"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between gap-4 mb-5">
+          <div>
+            <h2 className="display-font text-[28px] sm:text-[32px] leading-none text-neutral-900">Browse by category</h2>
+            <p className="text-[13px] text-stone-500 mt-2">Tap a collection — opens a curated shelf, not clutter</p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2">
+            <button className="swiper-button-prev-custom w-10 h-10 rounded-full border border-stone-200 bg-white inline-flex items-center justify-center hover:bg-stone-50">
+              <svg className="w-5 h-5 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button className="swiper-button-next-custom w-10 h-10 rounded-full border border-stone-200 bg-white inline-flex items-center justify-center hover:bg-stone-50">
+              <svg className="w-5 h-5 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
         modules={[Navigation, Keyboard, Autoplay]}
-        spaceBetween={24}
+        spaceBetween={16}
         slidesPerView="auto"
         navigation={{
           nextEl: '.swiper-button-next-custom',
           prevEl: '.swiper-button-prev-custom',
         }}
-        keyboard={{
-          enabled: true,
-        }}
+        keyboard={{ enabled: true }}
         autoplay={{
-          delay: 1500,
+          delay: 3200,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         loop={true}
-        speed={800}
-        breakpoints={{
-          320: {
-            slidesPerView: 1.5,
-            spaceBetween: 16,
-          },
-          640: {
-            slidesPerView: 2.5,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3.5,
-            spaceBetween: 24,
-          },
-          1024: {
-            slidesPerView: 4.5,
-            spaceBetween: 24,
-          },
-          1280: {
-            slidesPerView: 5.5,
-            spaceBetween: 24,
-          },
-        }}
-        className="category-swiper"
+        speed={650}
+        className="category-swiper !px-4 sm:!px-6 lg:!px-8 !py-2"
       >
         {categories.map((category) => (
           <SwiperSlide key={category.id} className="!w-auto">
-            <CategoryCard
-              category={category}
-              onClick={() => onCategoryClick(category.id)}
-            />
+            <CategoryCard category={category} onClick={() => onCategoryClick(category.id)} />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Custom Navigation Buttons */}
-      <div className="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110">
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </div>
-      
-      <div className="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110">
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+      {/* mobile nav */}
+      <div className="sm:hidden flex justify-center gap-2 mt-4">
+        <button className="swiper-button-prev-custom w-10 h-10 rounded-full border border-stone-200 bg-white inline-flex items-center justify-center">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button className="swiper-button-next-custom w-10 h-10 rounded-full border border-stone-200 bg-white inline-flex items-center justify-center">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M9 5l7 7-7 7" /></svg>
+        </button>
       </div>
     </div>
   );

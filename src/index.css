@@ -1,22 +1,32 @@
-/* Import Roboto font first */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global font setting for the entire website */
 @layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #fcfcf9;
+    color: #0f0f0f;
+    letter-spacing: -0.011em;
   }
 }
 
+/* Editorial display */
 .brand-font {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.display-font {
+  font-family: 'Instrument Serif', Georgia, serif;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
 }
 
 /* 3D Showroom rotation animation */
@@ -97,56 +107,14 @@
   display: none;  /* Chrome, Safari and Opera */
 }
 
-/* Swiper Custom Styles */
+/* Swiper */
 .category-swiper {
-  padding: 20px 60px; /* Add padding for custom navigation buttons and hover effects */
+  padding: 4px 0;
 }
-
 .category-swiper .swiper-slide {
   width: auto !important;
 }
-
-/* Hide default Swiper navigation buttons */
 .category-swiper .swiper-button-next,
 .category-swiper .swiper-button-prev {
   display: none;
-}
-
-/* Custom navigation button styles */
-.swiper-button-prev-custom,
-.swiper-button-next-custom {
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.swiper-button-prev-custom:hover,
-.swiper-button-next-custom:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.swiper-button-prev-custom:active,
-.swiper-button-next-custom:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-/* Responsive navigation button positioning */
-@media (max-width: 640px) {
-  .category-swiper {
-    padding: 15px 50px;
-  }
-  
-  .swiper-button-prev-custom,
-  .swiper-button-next-custom {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .swiper-button-prev-custom {
-    left: 8px;
-  }
-  
-  .swiper-button-next-custom {
-    right: 8px;
-  }
 }

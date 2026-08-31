@@ -16,40 +16,32 @@ interface CategoryCardProps {
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick }) => {
   return (
-    <div 
+    <button
       onClick={onClick}
-      className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden w-80 h-96"
+      className="group text-left bg-white border border-stone-200 rounded-[20px] overflow-hidden w-[300px] sm:w-[320px] hover:border-stone-300 transition-colors"
     >
-      {/* Full background image */}
-      <div className="relative h-full w-full">
-        <img 
-          src={category.icon} 
+      <div className="aspect-[1.05/1] bg-[#f5f5f2] relative overflow-hidden">
+        <img
+          src={category.icon}
           alt={category.name}
-          className="absolute inset-0 w-full h-full object-contain object-center"
+          className="absolute inset-0 w-full h-full object-contain p-7 group-hover:scale-[1.02] transition-transform duration-500"
+          loading="lazy"
         />
-        
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-        
-        {/* Content overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-          <p className="hidden sm:block text-white/90 text-sm mb-4 leading-relaxed">{category.description}</p>
-          
-          <div className="flex items-center justify-between">
-            <span className="text-white/80 text-sm">
-              {category.productCount} products
-            </span>
-            <div className="flex items-center text-white text-sm font-medium">
-              Browse
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-          </div>
+        <div className="absolute top-3 left-3 rounded-full bg-white border border-stone-200 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-neutral-900">
+          {category.productCount} items
         </div>
       </div>
-    </div>
+      <div className="p-4 sm:p-5">
+        <h3 className="text-[16px] font-semibold tracking-tight text-neutral-900">{category.name}</h3>
+        <p className="mt-1 text-[12.5px] leading-5 text-stone-600 line-clamp-2">{category.description}</p>
+        <div className="mt-3 inline-flex items-center gap-1 text-[12.5px] font-semibold text-neutral-900">
+          Explore
+          <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </button>
   );
 };
 
